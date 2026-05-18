@@ -83,9 +83,9 @@ export function Hero() {
           className="flex items-center justify-center gap-3"
         >
           {[
-            { href: 'https://github.com/yourusername', icon: <FaGithub size={20} />, label: 'GitHub' },
-            { href: 'https://linkedin.com/in/yourusername', icon: <FaLinkedin size={20} />, label: 'LinkedIn' },
-            { href: 'mailto:your.email@example.com', icon: <Mail className="w-5 h-5" />, label: 'Email' },
+            { href: 'https://github.com/btbonsa', icon: <FaGithub size={20} />, label: 'GitHub' },
+            { href: 'https://www.linkedin.com/in/bonsa-tujo-640069347', icon: <FaLinkedin size={20} />, label: 'LinkedIn' },
+            { href: 'mailto:btbonsa@gmail.com', icon: <Mail className="w-5 h-5" />, label: 'Email' },
           ].map(({ href, icon, label }) => (
             <a
               key={label}
