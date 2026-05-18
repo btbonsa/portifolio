@@ -2,45 +2,46 @@ import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
 import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import etn from '../assets/ETN_night.png';
+import hrpay from '../assets/HRpay.png';
+import heroImg from '../assets/hero.png';
+import jar from '../assets/jarOrdering.png';
 
 export function Projects() {
   const { ref, inView } = useInView();
 
   const projects = [
     {
-      title: 'Project Title 1',
-      description: 'A brief description of your project. Explain what it does, the problem it solves, and the technologies used.',
-      tags: ['React', 'TypeScript', 'Node.js'],
-      emoji: '🎨',
-      gradient: 'from-violet-500/20 via-purple-500/10 to-pink-500/20',
-      github: 'https://github.com/yourusername/project1',
-      demo: 'https://project1-demo.com',
+      title: 'Ethiopian Talent Network',
+      description: 'An AI-powered platform that connects Ethiopian professionals with opportunities. It offers personalized job matching, skill development resources, and a vibrant community to empower Ethiopian talent.',
+      tags: ['React', 'TypeScript', 'Node.js', 'MySQL', 'Python', 'FastAPI'],
+      image: etn,
+      github: 'https://github.com/ethiopian-talent-network/fullINtegratedETN.git',
+      demo: 'https://etn-front.vercel.app/',
     },
     {
-      title: 'Project Title 2',
-      description: 'Another amazing project description. Highlight key features and your role in the development.',
-      tags: ['Next.js', 'Tailwind', 'PostgreSQL'],
-      emoji: '🚀',
-      gradient: 'from-blue-500/20 via-cyan-500/10 to-teal-500/20',
-      github: 'https://github.com/yourusername/project2',
+      title: 'HRpay System',
+      description: 'A Haramaya University punishment payment system integrated with M-Pesa to allow students to pay fines online, ensuring accurate record-keeping and streamlined administrative processes.',
+      tags: ['React', 'Express.js', 'Tailwind CSS'],
+      image: hrpay,
+      github: 'https://github.com/ethiopian-talent-network/.git',
       demo: 'https://project2-demo.com',
     },
     {
-      title: 'Project Title 3',
-      description: 'Describe this project and its impact. Include metrics or outcomes if possible.',
-      tags: ['Python', 'FastAPI', 'Docker'],
-      emoji: '⚡',
-      gradient: 'from-amber-500/20 via-orange-500/10 to-red-500/20',
+      title: 'HRpay App',
+      description: 'Mobile application companion for the HRpay system, providing students with a convenient way to manage and pay their university fines on the go.',
+      tags: ['React Native', 'Express.js', 'MySQL'],
+      image: heroImg,
       github: 'https://github.com/yourusername/project3',
       demo: 'https://project3-demo.com',
     },
     {
-      title: 'Project Title 4',
-      description: 'Add more projects to showcase your diverse skill set and experience.',
-      tags: ['Vue.js', 'Firebase', 'MongoDB'],
-      emoji: '🔥',
+      title: 'Jar Ordering App',
+      description: 'A mobile ordering application that streamlines the process of ordering water jars, connecting customers with suppliers for efficient delivery management.',
+      tags: ['React Native', 'Express.js', 'MySQL'],
+      image: jar,
       gradient: 'from-green-500/20 via-emerald-500/10 to-teal-500/20',
-      github: 'https://github.com/yourusername/project4',
+      github: 'https://github.com/btbonsa/jarOrdering-app.git',
       demo: 'https://project4-demo.com',
     },
   ];
@@ -75,9 +76,21 @@ export function Projects() {
               className="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/15 transition-all duration-400 group"
             >
               {/* Project banner */}
-              <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-                <span className="text-7xl group-hover:scale-110 transition-transform duration-500">{project.emoji}</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+              <div className="h-48 overflow-hidden relative bg-slate-950/10 border-b border-border/30 shadow-inner">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className={`w-full h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                    <span className="text-6xl">🔥</span>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent pointer-events-none" />
+
               </div>
 
               <div className="p-7">
