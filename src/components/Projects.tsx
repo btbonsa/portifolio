@@ -4,7 +4,6 @@ import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import etn from '../assets/ETN_night.png';
 import hrpay from '../assets/HRpay.png';
-import heroImg from '../assets/hero.png';
 import jar from '../assets/jar.png';
 
 export function Projects() {
