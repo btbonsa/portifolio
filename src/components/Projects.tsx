@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import etn from '../assets/ETN_night.png';
 import hrpay from '../assets/HRpay.png';
 import heroImg from '../assets/hero.png';
-import jar from '../assets/jarOrdering.png';
+import jar from '../assets/jar.png';
 
 export function Projects() {
   const { ref, inView } = useInView();
@@ -20,19 +20,19 @@ export function Projects() {
       demo: 'https://etn-front.vercel.app/',
     },
     {
-      title: 'HRpay System',
-      description: 'A Haramaya University punishment payment system integrated with M-Pesa to allow students to pay fines online, ensuring accurate record-keeping and streamlined administrative processes.',
-      tags: ['React', 'Express.js', 'Tailwind CSS'],
-      image: hrpay,
-      github: 'https://github.com/ethiopian-talent-network/.git',
+      title: 'jar ordering app',
+      description: 'A mobile application for ordering water jars, connecting customers with suppliers for efficient delivery management.',
+      tags: ['React native', 'Express.js', 'Tailwind CSS' , 'MySQL'],
+      image: jar,
+      github: 'https://github.com/btbonsa/jarOrdering-app.git',
       demo: 'https://project2-demo.com',
     },
     {
       title: 'HRpay App',
       description: 'Mobile application companion for the HRpay system, providing students with a convenient way to manage and pay their university fines on the go.',
       tags: ['React Native', 'Express.js', 'MySQL'],
-      image: heroImg,
-      github: 'https://github.com/yourusername/project3',
+      image: hrpay,
+      github: 'https://github.com/btbonsa/HRpay-app.git',
       demo: 'https://project3-demo.com',
     },
     {
