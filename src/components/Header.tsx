@@ -82,21 +82,24 @@ export function Header() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-              className="md:hidden overflow-hidden"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="md:hidden fixed left-0 right-0 top-16 sm:top-20 z-40 bg-[#080808] border-b border-[#1e1e1e] shadow-2xl shadow-black"
             >
-              <div className="py-3 space-y-1 border-t border-border/50">
-                {navItems.map((item) => (
-                  <button
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-1">
+                {navItems.map((item, index) => (
+                  <motion.button
                     key={item.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
                     onClick={() => handleNavClick(item.href)}
-                    className="block w-full text-left px-4 py-2.5 text-xs font-medium uppercase tracking-wide text-[#888] hover:text-white hover:bg-white/5 transition-all duration-200"
+                    className="w-full text-left px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[#888] hover:text-primary hover:bg-white/5 border-l-2 border-transparent hover:border-primary transition-all duration-200"
                   >
                     {item.label}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </motion.div>

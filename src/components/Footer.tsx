@@ -34,7 +34,7 @@ export function Footer() {
 
           <p className="text-sm text-muted-foreground flex items-center gap-1.5">
             <span>© {currentYear} Bonsa Tujo. Built with</span>
-            <span>and React</span>
+            <span>React</span>
           </p>
         </div>
       </div>

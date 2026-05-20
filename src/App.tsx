@@ -1,4 +1,5 @@
 import { ThemeProvider } from './components/ThemeProvider';
+import { AnimatedBackground } from './components/AnimatedBackground';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -12,7 +13,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background text-foreground">
-        <div className="mesh-bg" />
+        <AnimatedBackground />
         <Header />
         <main className="relative z-10">
           <Hero />

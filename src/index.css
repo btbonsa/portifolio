@@ -40,7 +40,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-background);
+  background-color: #080808;
   color: var(--color-foreground);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -86,18 +86,19 @@ body {
 .orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(100px);
-  opacity: 0.25;
-  animation: float 10s ease-in-out infinite;
+  filter: blur(120px);
+  opacity: 0.15;
+  animation: float 12s ease-in-out infinite;
 }
 
-.orb-1 { background: rgba(0, 212, 255, 0.5); width: 500px; height: 500px; top: -150px; left: -150px; animation-delay: 0s; }
-.orb-2 { background: rgba(0, 153, 187, 0.4); width: 350px; height: 350px; top: 40%; right: -100px; animation-delay: 3s; }
-.orb-3 { background: rgba(0, 212, 255, 0.3); width: 300px; height: 300px; bottom: 5%; left: 25%; animation-delay: 6s; }
+.orb-1 { background: rgba(0, 212, 255, 0.8); width: 600px; height: 600px; top: -200px; left: -200px; animation-delay: 0s; }
+.orb-2 { background: rgba(0, 153, 187, 0.6); width: 400px; height: 400px; top: 40%; right: -150px; animation-delay: 4s; }
+.orb-3 { background: rgba(0, 212, 255, 0.5); width: 350px; height: 350px; bottom: 0%; left: 20%; animation-delay: 8s; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-30px) scale(1.05); }
+  33% { transform: translateY(-40px) scale(1.08); }
+  66% { transform: translateY(20px) scale(0.95); }
 }
 
 /* ── Section divider ── */

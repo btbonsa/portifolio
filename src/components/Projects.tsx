@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
 import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
-import etn from '../assets/ETN_night.png';
+import etn from '../assets/etn.png';
 import hrpay from '../assets/HRpay.png';
 import jar from '../assets/jar.png';
 
@@ -16,7 +16,7 @@ export function Projects() {
       tags: ['React', 'TypeScript', 'Node.js', 'MySQL', 'Python', 'FastAPI'],
       image: etn,
       github: 'https://github.com/ethiopian-talent-network/fullINtegratedETN.git',
-      demo: 'https://etn-front.vercel.app/',
+      demo: 'https://etn-front-ba74-git-main-btbonsas-projects.vercel.app/',
     },
     {
       title: 'jar ordering app',
