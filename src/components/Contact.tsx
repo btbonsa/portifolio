@@ -2,16 +2,47 @@ import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
   const { ref, inView } = useInView();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [responseMessage, setResponseMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+
+    if (serviceId.includes('YOUR_') || templateId.includes('YOUR_') || publicKey.includes('YOUR_')) {
+      setStatus('error');
+      setResponseMessage('EmailJS is not configured correctly. Check your .env values.');
+      console.error('EmailJS configuration missing:', { serviceId, templateId, publicKey });
+      return;
+    }
+
+    setStatus('sending');
+    setResponseMessage('Sending message...');
+
+    try {
+      const result = await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      }, publicKey);
+
+      console.log('EmailJS send result:', result);
+      setStatus('success');
+      setResponseMessage('Message sent! I will reply soon.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setStatus('error');
+      setResponseMessage('Failed to send message. Please try again and check the browser console for details.');
+    }
   };
 
   const contactInfo = [
@@ -114,11 +145,17 @@ export function Contact() {
               </div>
               <button
                 type="submit"
-                className="btn-primary w-full px-8 py-3.5 text-sm flex items-center justify-center gap-2"
+                disabled={status === 'sending'}
+                className="btn-primary w-full px-8 py-3.5 text-sm flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Send Message
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
                 <Send className="w-4 h-4" />
               </button>
+              {responseMessage && (
+                <p className={`text-sm mt-3 ${status === 'success' ? 'text-emerald-500' : 'text-red-500'}`}>
+                  {responseMessage}
+                </p>
+              )}
             </form>
           </motion.div>
         </div>

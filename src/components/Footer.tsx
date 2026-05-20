@@ -1,4 +1,4 @@
-import { Mail, Heart } from 'lucide-react';
+import { Mail} from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export function Footer() {
@@ -6,7 +6,7 @@ export function Footer() {
 
   const socials = [
     { href: 'https://github.com/btbonsa', icon: <FaGithub size={18} />, label: 'GitHub' },
-    { href: 'https://linkedin.com/in/yourusername', icon: <FaLinkedin size={18} />, label: 'LinkedIn' },
+    { href: 'https://www.linkedin.com/in/bonsa-tujo-640069347', icon: <FaLinkedin size={18} />, label: 'LinkedIn' },
     { href: 'mailto:btbonsa@gmail.com', icon: <Mail className="w-[18px] h-[18px]" />, label: 'Email' },
   ];
 
@@ -33,8 +33,7 @@ export function Footer() {
           </div>
 
           <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-            <span>© {currentYear} Your Name. Built with</span>
-            <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />
+            <span>© {currentYear} Bonsa Tujo. Built with</span>
             <span>and React</span>
           </p>
         </div>

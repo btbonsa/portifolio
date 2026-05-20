@@ -30,9 +30,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight font-mono"
         >
-          <span className="text-foreground">Hello, I'm</span>
+          <span className="text-white">Hello, I'm</span>
           <br />
           <span className="gradient-text">Bonsa Tujo</span>
         </motion.h1>
@@ -41,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="text-xl sm:text-2xl text-muted-foreground font-light mb-4"
+          className="text-xl sm:text-2xl text-[#888] font-light mb-4 tracking-widest uppercase text-sm"
         >
           Full Stack Developer
         </motion.p>
@@ -50,7 +50,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="text-base sm:text-lg text-foreground/60 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base sm:text-lg text-[#555] max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Passionate about crafting elegant solutions to complex problems.
           Specializing in building exceptional digital experiences with modern
@@ -69,14 +69,14 @@ export function Hero() {
                 .querySelector("#contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="btn-primary px-8 py-3.5 text-sm font-semibold"
+            className="btn-primary px-8 py-3.5 text-sm font-bold tracking-wide uppercase"
           >
             Get In Touch
           </button>
           <a
             href={resumePdf}
             download="Bonsa resume.pdf"
-            className="px-8 py-3.5 text-sm font-semibold rounded-xl border-2 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary/60 transition-all duration-300"
+            className="px-8 py-3.5 text-sm font-semibold rounded-none border border-[#333] text-[#888] hover:text-white hover:border-primary/60 transition-all duration-300 tracking-wide uppercase"
           >
             Download Resume
           </a>
@@ -111,7 +111,7 @@ export function Hero() {
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
               aria-label={label}
-              className="p-3 rounded-xl glass-card hover:scale-110 hover:border-primary/40 transition-all duration-300 text-foreground/70 hover:text-primary"
+              className="p-3 rounded-none glass-card hover:scale-110 hover:border-primary/40 transition-all duration-300 text-[#555] hover:text-primary"
             >
               {icon}
             </a>
