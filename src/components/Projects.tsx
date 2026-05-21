@@ -42,7 +42,7 @@ export function Projects() {
       image: jar,
       gradient: 'from-green-500/20 via-emerald-500/10 to-teal-500/20',
       github: 'https://github.com/btbonsa/jarOrdering-app.git',
-      demo: 'https://project4-demo.com',
+      demo: 'https://etn-ai-assistant.vercel.app/',
     },
   ];
 
