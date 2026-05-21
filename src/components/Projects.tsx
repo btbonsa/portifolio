@@ -5,6 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import etn from '../assets/etn.png';
 import hrpay from '../assets/HRpay.png';
 import jar from '../assets/jar.png';
+import etnChatboat from '../assets/etn-ai-assistant.png';
 
 export function Projects() {
   const { ref, inView } = useInView();
@@ -20,7 +21,7 @@ export function Projects() {
     },
     {
       title: 'jar ordering app',
-      description: 'A mobile application for ordering water jars, connecting customers with suppliers for efficient delivery management.',
+      description: 'A mobile application for ordering water jars, connecting customers with suppliers for efficient delivery management and integrated with m-pesa payments.',
       tags: ['React native', 'Express.js', 'Tailwind CSS' , 'MySQL'],
       image: jar,
       github: 'https://github.com/btbonsa/jarOrdering-app.git',
@@ -35,12 +36,12 @@ export function Projects() {
       demo: 'https://project3-demo.com',
     },
     {
-      title: 'Jar Ordering App',
-      description: 'A mobile ordering application that streamlines the process of ordering water jars, connecting customers with suppliers for efficient delivery management.',
-      tags: ['React Native', 'Express.js', 'MySQL'],
-      image: jar,
+      title: 'ETN-AI assistant',
+      description: 'An AI-powered assistant for the Ethiopian Talent Network, providing personalized recommendations and support to users.',
+      tags: ['React', 'TypeScript', 'Node.js', 'Python', 'FastAPI'],
+      image: etnChatboat,
       gradient: 'from-green-500/20 via-emerald-500/10 to-teal-500/20',
-      github: 'https://github.com/btbonsa/jarOrdering-app.git',
+      github: 'https://github.com/ethiopian-talent-network/etn-ai-assistant.git',
       demo: 'https://project4-demo.com',
     },
   ];
