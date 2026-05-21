@@ -41,8 +41,8 @@ export function Projects() {
       tags: ['React', 'TypeScript', 'Node.js', 'Python', 'FastAPI'],
       image: etnChatboat,
       gradient: 'from-green-500/20 via-emerald-500/10 to-teal-500/20',
-      github: 'https://github.com/ethiopian-talent-network/etn-ai-assistant.git',
-      demo: 'https://project4-demo.com',
+      github: 'https://github.com/btbonsa/ETN-AI-Assistant.git',
+      demo: 'https://vercel.com/btbonsas-projects/etn-ai-assistant/CboLrR1sKcbZGYq1WtWvzYZMrbqa',
     },
   ];
 
