@@ -1,16 +1,12 @@
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export function Header() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -30,8 +26,6 @@ export function Header() {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  if (!mounted) return null;
-
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -39,7 +33,7 @@ export function Header() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-background/80 backdrop-blur-xl shadow-sm shadow-black/5 dark:shadow-black/20'
+          ? 'bg-[#080808]/90 backdrop-blur-xl border-b border-[#1e1e1e]'
           : 'bg-transparent'
       }`}
     >
@@ -49,9 +43,9 @@ export function Header() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl sm:text-2xl font-bold gradient-text tracking-tight"
+            className="text-xl sm:text-2xl font-bold tracking-tight text-white font-mono"
           >
-            &lt;Portfolio /&gt;
+            &lt;BT /&gt;
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -63,37 +57,20 @@ export function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
                 onClick={() => handleNavClick(item.href)}
-                className="px-4 py-2 text-sm font-medium text-foreground/60 hover:text-foreground rounded-lg hover:bg-accent/60 transition-all duration-200 relative group"
+                className="px-4 py-2 text-sm font-medium text-[#888] hover:text-white rounded-none hover:bg-white/5 transition-all duration-200 relative group tracking-wide uppercase text-xs"
               >
                 {item.label}
-                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-300 group-hover:w-4/5" />
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-4/5" />
               </motion.button>
             ))}
 
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.7 }}
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="ml-2 p-2.5 rounded-xl bg-accent/80 hover:bg-accent border border-border/50 transition-all duration-200 hover:scale-105"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </motion.button>
           </div>
 
           {/* Mobile */}
           <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2.5 rounded-xl bg-accent/80 border border-border/50 transition-all duration-200"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
-            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-accent/80 border border-border/50 transition-all duration-200"
+              className="p-2.5 rounded-none bg-white/5 border border-[#1e1e1e] transition-all duration-200"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -105,21 +82,24 @@ export function Header() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-              className="md:hidden overflow-hidden"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="md:hidden fixed left-0 right-0 top-16 sm:top-20 z-40 bg-[#080808] border-b border-[#1e1e1e] shadow-2xl shadow-black"
             >
-              <div className="py-3 space-y-1 border-t border-border/50">
-                {navItems.map((item) => (
-                  <button
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-1">
+                {navItems.map((item, index) => (
+                  <motion.button
                     key={item.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
                     onClick={() => handleNavClick(item.href)}
-                    className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-accent/60 rounded-xl transition-all duration-200"
+                    className="w-full text-left px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[#888] hover:text-primary hover:bg-white/5 border-l-2 border-transparent hover:border-primary transition-all duration-200"
                   >
                     {item.label}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </motion.div>

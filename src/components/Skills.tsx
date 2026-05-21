@@ -64,11 +64,11 @@ export function Skills() {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: categoryIndex * 0.15 }}
-              className="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 transition-all duration-400 group"
+              className="glass-card p-8 hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-400 group"
             >
               <div className="flex items-center gap-3 mb-8">
-                <span className="text-2xl">{category.emoji}</span>
-                <h3 className="text-lg font-bold">{category.category}</h3>
+                <span className="text-primary font-mono text-sm font-bold">//</span>
+                <h3 className="text-lg font-bold tracking-wide">{category.category}</h3>
               </div>
               <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
@@ -77,7 +77,7 @@ export function Skills() {
                       <span className="text-sm font-medium text-foreground/80">{skill.name}</span>
                       <span className="text-xs font-semibold text-primary">{skill.level}%</span>
                     </div>
-                    <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                    <div className="h-px bg-[#1a1a1a] overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={inView ? { width: `${skill.level}%` } : {}}
@@ -86,8 +86,8 @@ export function Skills() {
                           delay: categoryIndex * 0.15 + skillIndex * 0.08,
                           ease: 'easeOut',
                         }}
-                        className="h-full rounded-full"
-                        style={{ background: 'linear-gradient(90deg, var(--color-primary), var(--color-secondary))' }}
+                        className="h-full"
+                        style={{ background: 'var(--color-primary)' }}
                       />
                     </div>
                   </div>

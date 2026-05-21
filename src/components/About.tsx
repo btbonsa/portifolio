@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
 import { Code2, Rocket, Users } from 'lucide-react';
-import profileImage from '../assets/profile.jpg';
+import profileImage from '../assets/profile1.jpg';
 
 export function About() {
   const { ref, inView } = useInView();
@@ -37,8 +37,8 @@ export function About() {
           >
             <div className="relative aspect-square max-w-md mx-auto">
               {/* Decorative ring */}
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 via-secondary/20 to-pink-500/20 blur-xl" />
-              <div className="relative rounded-3xl overflow-hidden border-2 border-primary/20 shadow-2xl shadow-primary/20 group">
+              <div className="absolute -inset-4 bg-primary/5 blur-2xl" />
+              <div className="relative overflow-hidden border border-primary/20 shadow-2xl shadow-black group">
                 <img
                   src={profileImage}
                   alt="Profile"
@@ -72,9 +72,9 @@ export function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  className="glass-card rounded-2xl p-5 text-center hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group"
+                  className="glass-card p-5 text-center hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mx-auto mb-3 group-hover:from-primary/30 group-hover:to-secondary/30 transition-all duration-300">
+                  <div className="w-10 h-10 bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-all duration-300">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
