@@ -41,8 +41,9 @@ export function Projects() {
       tags: ['React', 'TypeScript', 'Node.js', 'Python', 'FastAPI'],
       image: etnChatboat,
       gradient: 'from-green-500/20 via-emerald-500/10 to-teal-500/20',
-      github: 'https://github.com/btbonsa/ETN-AI-Assistant.git',
-      demo: 'https://vercel.com/btbonsas-projects/etn-ai-assistant/CboLrR1sKcbZGYq1WtWvzYZMrbqa',
+
+      github: 'https://github.com/btbonsa/jarOrdering-app.git',
+      demo: 'https://etn-ai-assistant.vercel.app/',
     },
   ];
 
